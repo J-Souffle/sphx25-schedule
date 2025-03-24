@@ -94,9 +94,17 @@ export default function Component() {
       {/* <Comment text={"Caesar shift 12"} /> */}
       <div className="mb-30 py-8 sm:py-12 md:py-16 mx-auto text-center flex flex-col items-center max-w-4xl">
         {/* Header */}
-        <h1 style={{ fontSize: "9em" }} className="font-bold text-primary mb-8">
-  SpeedHacks 2025<br />Schedule
-</h1>
+        <h1
+          style={{
+            fontSize: "9em",
+            fontFamily: "Upheaval, Arial, Helvetica, sans-serif", // Use your custom font
+          }}
+          className="font-bold text-primary mb-8"
+        >
+          SpeedHacks 2025<br />
+          Schedule
+        </h1>
+
 
 
         {/* Toggle for "View All Events" */}

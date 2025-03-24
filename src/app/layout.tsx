@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../fonts/upheavtt.ttf", 
   variable: "--font-geist-mono",
   weight: "100 900",
 });
