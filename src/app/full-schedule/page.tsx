@@ -32,9 +32,9 @@ export default function FullSchedule() {
             <table className="table-auto w-full border-collapse border border-gray-300">
               <thead>
                 <tr className="bg-gray-100">
-                  <th className="border border-gray-300 px-4 py-2 text-left text-black">Time</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left text-black">Event</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left text-black">Location</th>
+                  <th className="border border-gray-300 px-4 py-2 text-center text-black">Time</th>
+                  <th className="border border-gray-300 px-4 py-2 text-center text-black">Event</th>
+                  <th className="border border-gray-300 px-4 py-2 text-center text-black">Location</th>
                 </tr>
               </thead>
               <tbody>

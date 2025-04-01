@@ -132,7 +132,7 @@ export default function Component() {
           View Full Schedule
         </Button>
         <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {["Saturday", "Sunday"].map((day) => (
+          {["Saturday"].map((day) => (
             <Button
               key={day}
               variant={selectedDay === day ? "default" : "outline"}
