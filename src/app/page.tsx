@@ -1,12 +1,13 @@
 "use client"
 
-import { useState } from "react"
-import MaxWidthWrapper from "@/components/MaxWidthWrapper"
-import { Timeline } from "@/components/ui/timeline"
-import { Button } from "@/components/ui/button"
-import MinFooter from "@/components/ui/Footer"
-import { SCHEDULE } from "@/lib/schedule"
-import { getCurrentTime, isEventActive } from "@/lib/utils"
+import { useState } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { Timeline } from "@/components/ui/timeline";
+import { Button } from "@/components/ui/button";
+import MinFooter from "@/components/ui/Footer";
+import { SCHEDULE } from "@/lib/schedule";
+import { getCurrentTime, isEventActive } from "@/lib/utils";
 
 const getDefaultDay = () => {
   const currentDate = new Date();
@@ -21,6 +22,8 @@ export default function Component() {
   const [showAllEvents, setShowAllEvents] = useState(false)
 
   const { saturdayData, sundayData } = SCHEDULE
+
+  const router = useRouter();
 
   function stripPastEvents(data: { title: string; content: JSX.Element }[], selectedDay: string) {
     const currentTime = getCurrentTime()
@@ -120,6 +123,14 @@ export default function Component() {
         </div> */}
 
         {/* Select Day Buttons */}
+         {/* Navigate to full schedule */}
+         <Button
+          onClick={() => router.push("/full-schedule")}
+          variant="default"
+          className="mb-4"
+        >
+          View Full Schedule
+        </Button>
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           {["Saturday", "Sunday"].map((day) => (
             <Button
