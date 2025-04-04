@@ -59,12 +59,12 @@ export default function FullSchedule() {
         </div>
 
         {/* Go Back to Main Page Button */}
-        <button
-          onClick={() => router.push("/")} // Navigate back to the main page
+        {/* <button
+          onClick={() => router.push("/")} 
           className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
         >
           Go Back
-        </button>
+        </button> */}
 
         {/* Footer */}
         <div className="pt-[5rem] w-full max-w-3xl mx-auto">
