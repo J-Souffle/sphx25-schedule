@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
@@ -18,83 +18,80 @@ const getDefaultDay = () => {
 };
 
 export default function Component() {
-  const [selectedDay, setSelectedDay] = useState(getDefaultDay())
-  const [showAllEvents, setShowAllEvents] = useState(false)
+  const [selectedDay, setSelectedDay] = useState(getDefaultDay());
+  const [showAllEvents, setShowAllEvents] = useState(false);
 
-  const { saturdayData, sundayData } = SCHEDULE
+  const { saturdayData, sundayData } = SCHEDULE;
 
   const router = useRouter();
 
   function stripPastEvents(data: { title: string; content: JSX.Element }[], selectedDay: string) {
-    const currentTime = getCurrentTime()
-    
+    const currentTime = getCurrentTime();
+    console.log("Current Time:", currentTime); // Debugging log
+
     let eventDate;
     switch (selectedDay) {
       case "Saturday":
-        eventDate = "2025-3-21";
+        eventDate = "2025-4-04";
         break;
       case "Sunday":
         eventDate = "2025-3-20";
         break;
       default:
-        eventDate = "2025-3-18"; 
+        eventDate = "2025-3-18";
     }
 
-//     console.log("Selected Day:", selectedDay); 
-// console.log("Selected Data:", getSelectedData()); 
-
+    console.log("Selected Day:", selectedDay); // Debugging log
+    console.log("Event Date for Selected Day:", eventDate); // Debugging log
 
     return data.filter((event) => {
-
-      // Extract the time from the event title (e.g., "4:30 PM")
       const eventTimeString = event.title;
       const [time, modifier] = eventTimeString.split(" ");
 
-      // Parse the event time (e.g., "4:30" => hours and minutes)
       let [hours, minutes] = time.split(":").map(Number);
-      minutes = minutes
+      if (modifier === "PM" && hours < 12) hours += 12;
+      else if (modifier === "AM" && hours === 12) hours = 0;
 
-      // Adjust hours based on AM/PM
-      if (modifier === "PM" && hours < 12) {
-        hours += 12;
-      } else if (modifier === "AM" && hours === 12) {
-        hours = 0; // Midnight edge case
-      }
-
-      // Create a full event Date object using the mapped eventDate and parsed time
       const eventDateTimeString = `${eventDate} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-
-      // Check if the event is active
-      const eventIsActive = isEventActive(eventDateTimeString);
-
-      // Create a full event Date object using the mapped eventDate and parsed time
       const eventDateTime = new Date(eventDateTimeString);
 
-      // Return true if the event is active or in the future
-      return eventIsActive || eventDateTime >= currentTime;
+      const currentLocalTime = new Date(currentTime.toLocaleString("en-US", { timeZone: "America/New_York" }));
+      const endOfDay = new Date(eventDate);
+      endOfDay.setHours(23, 59, 59, 999);
 
+      console.log("Event Date-Time String:", eventDateTimeString);
+      console.log("Event Date-Time Object:", eventDateTime);
+      console.log("Current Local Time:", currentLocalTime);
+      console.log("End of Day:", endOfDay);
+
+      // Include all events from the selected day regardless of past/future timing
+      return eventDateTime <= endOfDay && eventDateTime >= new Date(eventDate);
     });
   }
 
   const getSelectedData = () => {
     switch (selectedDay) {
       case "Saturday":
-        return saturdayData
+        return saturdayData;
       case "Sunday":
-        return sundayData
+        return sundayData;
       default:
-        return saturdayData
+        return saturdayData;
     }
-  }
+  };
 
   const getData = () => {
     const selectedData = getSelectedData();
-    return showAllEvents ? selectedData : stripPastEvents(selectedData, selectedDay);
-  }
+    console.log("Selected Data (Before Filtering):", selectedData); // Debugging log
+
+    const filteredData = showAllEvents ? selectedData : stripPastEvents(selectedData, selectedDay);
+    console.log("Filtered Data (After Filtering):", filteredData); // Debugging log
+
+    return filteredData;
+  };
 
   return (
     <MaxWidthWrapper>
-      {/* <Comment text={"Caesar shift 12"} /> */}
       <div className="mb-30 py-8 sm:py-12 md:py-16 mx-auto text-center flex flex-col items-center max-w-4xl">
         {/* Header */}
         <h1
@@ -108,23 +105,8 @@ export default function Component() {
           Schedule
         </h1>
 
-
-
-        {/* Toggle for "View All Events" */}
-        {/* <div className="mb-6">
-          <label className="flex items-center gap-2">
-            <span className="text-lg">View past events</span>
-            <Switch
-              aria-label="Toggle to view all events or upcoming events only"
-              checked={showAllEvents}
-              onCheckedChange={() => setShowAllEvents(!showAllEvents)}
-            />
-          </label>
-        </div> */}
-
-        {/* Select Day Buttons */}
-         {/* Navigate to full schedule */}
-         <Button
+        {/* Navigate to full schedule */}
+        <Button
           onClick={() => router.push("/full-schedule")}
           variant="default"
           className="mb-4"
@@ -155,7 +137,7 @@ export default function Component() {
                   <br />
                   <button
                     onClick={() => setShowAllEvents((prev) => !prev)}
-                    className="text-blue-500 underline cursor-pointer" // Add styles for the clickable text
+                    className="text-blue-500 underline cursor-pointer"
                   >
                     {`View completed events?`}
                   </button>
@@ -167,12 +149,11 @@ export default function Component() {
           <p className="text-background">Caesar Shift 13</p>
         </div>
 
-
         {/* Footer */}
         <div className="pt-[10rem] md:pt-[16rem] w-full max-w-3xl mx-auto">
           <MinFooter />
         </div>
       </div>
     </MaxWidthWrapper>
-  )
+  );
 }
