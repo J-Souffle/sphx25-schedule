@@ -3,7 +3,6 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import MinFooter from "@/components/ui/Footer";
 import { SCHEDULE } from "@/lib/schedule";
-import { useRouter } from "next/navigation";
 
 export default function FullSchedule() {
   const { saturdayData, sundayData } = SCHEDULE;

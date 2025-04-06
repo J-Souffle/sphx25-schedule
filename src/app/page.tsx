@@ -48,14 +48,16 @@ export default function Component() {
       const eventTimeString = event.title;
       const [time, modifier] = eventTimeString.split(" ");
 
-      let [hours, minutes] = time.split(":").map(Number); // Use 'let' for hours to allow reassignment, 'minutes' remains unchanged
+      let [hours, rawMinutes] = time.split(":").map(Number); // Use 'let' for hours to allow reassignment
+      const minutes = rawMinutes; // Declare 'minutes' as const since it is not reassigned
+      
       if (modifier === "PM" && hours < 12) {
-        hours += 12; // Reassign hours
+        hours += 12; // Reassign hours for PM times
       } else if (modifier === "AM" && hours === 12) {
         hours = 0; // Reassign hours for midnight case
       }
       
-      const eventDateTimeString = `${eventDate} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`; // 'minutes' remains constant
+      const eventDateTimeString = `${eventDate} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`; // Construct event time
       const eventDateTime = new Date(eventDateTimeString);
       
 
