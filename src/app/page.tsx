@@ -55,7 +55,12 @@ export default function Component() {
       const eventDateTimeString = `${eventDate} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
       const eventDateTime = new Date(eventDateTimeString);
 
-      const currentLocalTime = new Date(currentTime.toLocaleString("en-US", { timeZone: "America/New_York" }));
+      // const currentLocalTime = new Date(currentTime.toLocaleString("en-US", { timeZone: "America/New_York" }));
+      // Set currentLocalTime to the start of yesterday
+const currentLocalTime = new Date(currentTime.toLocaleString("en-US", { timeZone: "America/New_York" }));
+currentLocalTime.setDate(currentLocalTime.getDate() - 1); // Move back one day
+currentLocalTime.setHours(0, 0, 0, 0); // Set to start of the day (midnight)
+
       const endOfDay = new Date(eventDate);
       endOfDay.setHours(23, 59, 59, 999);
 
@@ -90,20 +95,31 @@ export default function Component() {
     return filteredData;
   };
 
+//   const getData = () => {
+//     const selectedData = getSelectedData();
+//     console.log("Selected Data:", selectedData); // Debugging log
+
+//     // Return all events (no filtering)
+//     return selectedData;
+// };
+
+
   return (
     <MaxWidthWrapper>
       <div className="mb-30 py-8 sm:py-12 md:py-16 mx-auto text-center flex flex-col items-center max-w-4xl">
         {/* Header */}
         <h1
-          style={{
-            fontSize: "9em",
-            fontFamily: "Upheaval, Arial, Helvetica, sans-serif", // Use your custom font
-          }}
-          className="font-bold text-primary mb-8"
-        >
-          SpeedHacks 2025<br />
-          Schedule
-        </h1>
+  style={{
+    // fontSize: window.innerWidth <= 768 ? "4em" : "9em", 
+    fontSize: window.innerWidth <= 768 ? "4em" : "4em", 
+    fontFamily: "Upheaval, Arial, Helvetica, sans-serif", // Use your custom font and make it important
+  }}
+  className="font-bold text-primary mb-8"
+>
+  SpeedHacks 2025<br />
+  Schedule
+</h1>
+
 
         {/* Navigate to full schedule */}
         <Button
