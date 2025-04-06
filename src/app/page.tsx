@@ -48,12 +48,16 @@ export default function Component() {
       const eventTimeString = event.title;
       const [time, modifier] = eventTimeString.split(" ");
 
-      const [hours, minutes] = time.split(":").map(Number);
-      if (modifier === "PM" && hours < 12) hours += 12;
-      else if (modifier === "AM" && hours === 12) hours = 0;
-
-      const eventDateTimeString = `${eventDate} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+      let [hours, minutes] = time.split(":").map(Number); // Use 'let' for hours to allow reassignment, 'minutes' remains unchanged
+      if (modifier === "PM" && hours < 12) {
+        hours += 12; // Reassign hours
+      } else if (modifier === "AM" && hours === 12) {
+        hours = 0; // Reassign hours for midnight case
+      }
+      
+      const eventDateTimeString = `${eventDate} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`; // 'minutes' remains constant
       const eventDateTime = new Date(eventDateTimeString);
+      
 
       // const currentLocalTime = new Date(currentTime.toLocaleString("en-US", { timeZone: "America/New_York" }));
       // Set currentLocalTime to the start of yesterday
