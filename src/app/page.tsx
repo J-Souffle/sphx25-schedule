@@ -117,7 +117,7 @@ currentLocalTime.setHours(0, 0, 0, 0); // Set to start of the day (midnight)
         <h1
   style={{
     // fontSize: window.innerWidth <= 768 ? "4em" : "9em", 
-    fontSize: "4e",
+    fontSize: "4em",
     fontFamily: "Upheaval, Arial, Helvetica, sans-serif", // Use your custom font and make it important
   }}
   className="font-bold text-primary mb-8"
