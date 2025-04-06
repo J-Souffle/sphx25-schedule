@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 
 export default function FullSchedule() {
   const { saturdayData, sundayData } = SCHEDULE;
-  const router = useRouter(); // Initialize router for navigation
 
   // Combine events for Saturday and Sunday
   const fullSchedule = [...saturdayData, ...sundayData];

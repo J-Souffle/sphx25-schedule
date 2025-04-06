@@ -7,7 +7,7 @@ import { Timeline } from "@/components/ui/timeline";
 import { Button } from "@/components/ui/button";
 import MinFooter from "@/components/ui/Footer";
 import { SCHEDULE } from "@/lib/schedule";
-import { getCurrentTime, isEventActive } from "@/lib/utils";
+import { getCurrentTime } from "@/lib/utils";
 
 const getDefaultDay = () => {
   const currentDate = new Date();
@@ -48,7 +48,7 @@ export default function Component() {
       const eventTimeString = event.title;
       const [time, modifier] = eventTimeString.split(" ");
 
-      let [hours, minutes] = time.split(":").map(Number);
+      const [hours, minutes] = time.split(":").map(Number);
       if (modifier === "PM" && hours < 12) hours += 12;
       else if (modifier === "AM" && hours === 12) hours = 0;
 
