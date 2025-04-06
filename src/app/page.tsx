@@ -27,7 +27,7 @@ export default function Component() {
 
   function stripPastEvents(data: { title: string; content: JSX.Element }[], selectedDay: string) {
     const currentTime = getCurrentTime();
-    console.log("Current Time:", currentTime); // Debugging log
+    // console.log("Current Time:", currentTime); 
 
     let eventDate;
     switch (selectedDay) {
@@ -41,8 +41,8 @@ export default function Component() {
         eventDate = "2025-3-18";
     }
 
-    console.log("Selected Day:", selectedDay); // Debugging log
-    console.log("Event Date for Selected Day:", eventDate); // Debugging log
+    // console.log("Selected Day:", selectedDay); 
+    // console.log("Event Date for Selected Day:", eventDate); 
 
     return data.filter((event) => {
       const eventTimeString = event.title;
@@ -64,10 +64,10 @@ currentLocalTime.setHours(0, 0, 0, 0); // Set to start of the day (midnight)
       const endOfDay = new Date(eventDate);
       endOfDay.setHours(23, 59, 59, 999);
 
-      console.log("Event Date-Time String:", eventDateTimeString);
-      console.log("Event Date-Time Object:", eventDateTime);
-      console.log("Current Local Time:", currentLocalTime);
-      console.log("End of Day:", endOfDay);
+      // console.log("Event Date-Time String:", eventDateTimeString);
+      // console.log("Event Date-Time Object:", eventDateTime);
+      // console.log("Current Local Time:", currentLocalTime);
+      // console.log("End of Day:", endOfDay);
 
       // Include all events from the selected day regardless of past/future timing
       return eventDateTime <= endOfDay && eventDateTime >= new Date(eventDate);
@@ -87,10 +87,10 @@ currentLocalTime.setHours(0, 0, 0, 0); // Set to start of the day (midnight)
 
   const getData = () => {
     const selectedData = getSelectedData();
-    console.log("Selected Data (Before Filtering):", selectedData); // Debugging log
+    // console.log("Selected Data (Before Filtering):", selectedData);
 
     const filteredData = showAllEvents ? selectedData : stripPastEvents(selectedData, selectedDay);
-    console.log("Filtered Data (After Filtering):", filteredData); // Debugging log
+    // console.log("Filtered Data (After Filtering):", filteredData); 
 
     return filteredData;
   };
@@ -111,7 +111,7 @@ currentLocalTime.setHours(0, 0, 0, 0); // Set to start of the day (midnight)
         <h1
   style={{
     // fontSize: window.innerWidth <= 768 ? "4em" : "9em", 
-    fontSize: window.innerWidth <= 768 ? "4em" : "4em", 
+    fontSize: "4e",
     fontFamily: "Upheaval, Arial, Helvetica, sans-serif", // Use your custom font and make it important
   }}
   className="font-bold text-primary mb-8"
