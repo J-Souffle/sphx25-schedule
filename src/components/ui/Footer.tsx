@@ -39,12 +39,12 @@ const MinFooter: React.FC = () => {
   return (
     <footer className="flex w-full flex-col items-center justify-between gap-5 border-t border-gray-900/5 pt-8 sm:flex-row dark:border-white/5">
       <div className="flex flex-col items-center">
-        <Image src={Machine} alt="Arcade Machine" width={150} height={150} />
+        <Image src={Machine} alt="Arcade Machine" width={1000} height={1000} />
       </div>
 
       <div className="flex flex-col items-center">
-        <h3 className="text-lg font-semibold">Follow Us</h3>
-        <ul className="flex gap-4">
+        <h3 className="text-lg font-semibold text-black">Follow Us</h3>
+        <ul className="flex gap-4 text-black">
           {socialLinks.map(({ href, icon: Icon, label }) => (
             <li key={label}>
               <a href={href} target="_blank" rel="noopener noreferrer" className="group">
@@ -56,9 +56,9 @@ const MinFooter: React.FC = () => {
         </ul>
       </div>
 
-      <div className="text-center">
-        <h3 className="text-lg font-semibold">Code of Conduct</h3>
-        <p className="text-sm">
+      <div className="text-left">
+        <h3 className="text-lg font-semibold text-black text-center">Code of Conduct</h3>
+        <p className="text-sm text-black">
           By participating in this event, you agree to the{' '}
           <a
             href="https://www.hackoverflow.org/code-of-conduct/"
@@ -78,7 +78,7 @@ const MinFooter: React.FC = () => {
             George Mason Student Code of Conduct [PDF]
           </a>.
         </p>
-        <p className="mt-4 text-sm">© {year} HackOverflow. All Rights Reserved.</p>
+        <p className="mt-4 text-sm text-black">© {year} HackOverflow. All Rights Reserved.</p>
       </div>
     </footer>
   );
