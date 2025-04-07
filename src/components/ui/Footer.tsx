@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaInstagram, FaLinkedin, FaDiscord, FaEnvelope } from 'react-icons/fa'; // Ensure you have react-icons installed
 import Image from 'next/image'; // For better image handling in Next.js
-import Machine from './arcade_machine.png'; // Adjust path as necessary
+import Machine from '../../assets/arcade_machine.png'; // Adjust path as necessary
 
 // Defining a TypeScript type for the social links
 type SocialLinkProps = {

@@ -5,7 +5,7 @@ import MinFooter from "@/components/ui/Footer";
 import { SCHEDULE } from "@/lib/schedule";
 import { useRouter } from 'next/navigation';
 import Image from "next/image"; // Use Next.js Image component for better performance
-import Logo from "../../../out/hackoverflow-upscaled-logo.png"; // Adjust the path based on your project structure
+import Logo from "../../assets/hackoverflow-upscaled-logo.png"; // Adjust the path based on your project structure
 
 export default function FullSchedule() {
   const router = useRouter();
