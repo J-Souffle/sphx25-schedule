@@ -10,8 +10,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SP25 Live Schedule",
-  description: "SP25 Live Schedule",
+  title: "SpeedHacks 2.0 Schedule",
+  description: "SpeedHacks 2.0 Schedule",
 };
 
 export default function RootLayout({

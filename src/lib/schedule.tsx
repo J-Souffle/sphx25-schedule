@@ -59,14 +59,14 @@ export const SCHEDULE = {
             </>
         )
     },
-    {
-        "title": "6:00 PM",
-        "content": (
-            <>
-                <EventCard title="Hacking Ends / Lunch / Judging Briefing" roomNumber={"Floor 1 Lobby / Room 1009"} isActive={isEventActive("2025-4-04 20:30")} />
-            </>
-        )
-    },
+    // {
+    //     "title": "6:00 PM",
+    //     "content": (
+    //         <>
+    //             <EventCard title="Hacking Ends / Lunch / Judging Briefing" roomNumber={"Floor 1 Lobby / Room 1009"} isActive={isEventActive("2025-4-04 20:30")} />
+    //         </>
+    //     )
+    // },
     {
         "title": "7:00 PM",
         "content": (
