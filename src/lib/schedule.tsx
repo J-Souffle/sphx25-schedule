@@ -68,6 +68,14 @@ export const SCHEDULE = {
     //     )
     // },
     {
+        "title": "6:00 PM",
+        "content": (
+            <>
+                <EventCard title="Hacking Ends / Dinner" roomNumber={"Floor 1 Lobby"} isActive={isEventActive("2025-4-04 21:00")} />
+            </>
+        )
+    },
+    {
         "title": "7:00 PM",
         "content": (
             <>
