@@ -3,8 +3,10 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import MinFooter from "@/components/ui/Footer";
 import { SCHEDULE } from "@/lib/schedule";
+import { useRouter } from 'next/navigation';
 
 export default function FullSchedule() {
+  const router = useRouter();
   const { saturdayData, sundayData } = SCHEDULE;
 
   // Combine events for Saturday and Sunday
@@ -16,7 +18,7 @@ export default function FullSchedule() {
         {/* Header */}
         <h1
           style={{
-            fontSize: "5em",
+            fontSize: "3em",
             fontFamily: "Upheaval, Arial, Helvetica, sans-serif",
           }}
           className="font-bold text-primary mb-8"
@@ -63,6 +65,13 @@ export default function FullSchedule() {
         >
           Go Back
         </button> */}
+
+<button
+      onClick={() => router.push("https://www.hackoverflow.org/")}
+      className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+    >
+      Go Home
+    </button>
 
         {/* Footer */}
         <div className="pt-[5rem] w-full max-w-3xl mx-auto">
