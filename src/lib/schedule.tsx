@@ -31,7 +31,7 @@ export const SCHEDULE = {
         "title": "11:00 AM",
         "content": (
             <>
-                <EventCard title="Arduino Workshop" roomNumber={"Room 1009"} isActive={isEventActive("2025-4-04 13:00")} />
+                <EventCard title="Arduino 101 Workshop" roomNumber={"Room 1009"} isActive={isEventActive("2025-4-04 13:00")} />
             </>
         )
     },
