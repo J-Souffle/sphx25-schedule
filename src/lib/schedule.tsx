@@ -36,14 +36,6 @@ export const SCHEDULE = {
         )
     },
     {
-        "title": "12:00 PM",
-        "content": (
-            <>
-                <EventCard title="Raspberry Pi Workshop" roomNumber={"Room 1009"} isActive={isEventActive("2025-4-04 19:00")} />
-            </>
-        )
-    },
-    {
         "title": "1:00 PM",
         "content": (
             <>
