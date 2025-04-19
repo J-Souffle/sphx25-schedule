@@ -32,7 +32,7 @@ export default function Component() {
     let eventDate;
     switch (selectedDay) {
       case "Saturday":
-        eventDate = "2025-4-04";
+        eventDate = "2025-4-19";
         break;
       case "Sunday":
         eventDate = "2025-3-20";
@@ -135,7 +135,7 @@ currentLocalTime.setHours(0, 0, 0, 0); // Set to start of the day (midnight)
         >
           View Full Schedule
         </Button>
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
+        {/* <div className="flex flex-wrap justify-center gap-4 mb-8">
           {["Saturday"].map((day) => (
             <Button
               key={day}
@@ -145,7 +145,7 @@ currentLocalTime.setHours(0, 0, 0, 0); // Set to start of the day (midnight)
               {day}
             </Button>
           ))}
-        </div>
+        </div> */}
 
         {/* Timeline */}
         <div className="w-full max-w-3xl mx-auto">
