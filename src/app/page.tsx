@@ -18,7 +18,7 @@ const getDefaultDay = () => {
 };
 
 export default function Component() {
-  const [selectedDay, setSelectedDay] = useState(getDefaultDay());
+  const [selectedDay] = useState(getDefaultDay());
   const [showAllEvents, setShowAllEvents] = useState(false);
 
   const { saturdayData, sundayData } = SCHEDULE;
