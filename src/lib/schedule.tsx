@@ -63,7 +63,7 @@ export const SCHEDULE = {
         "title": "4:00 PM",
         "content": (
             <>
-                <EventCard title="Tetris & Just Dance Competition" roomNumber={"Room 1009"} isActive={isEventActive("2025-4-19 16:00")} />
+                <EventCard title="Mario Kart and Tetris Competition" roomNumber={"Room 1009"} isActive={isEventActive("2025-4-19 16:00")} />
             </>
         )
     },
